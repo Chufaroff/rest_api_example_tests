@@ -11,8 +11,8 @@ public class CreateUserTests {
     // 1. Устанавливаем базовый URL API (необходимо для всех запросов)
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
-        @Test
-        public void createUserBasicTest() {
+    @Test
+    void createUserBasicTest() {
 
             // 2. Подготавливаем тело запроса в формате JSON
             //    В реальных тестах лучше использовать POJO классы или Map

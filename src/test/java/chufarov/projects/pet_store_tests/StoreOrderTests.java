@@ -79,8 +79,6 @@ public class StoreOrderTests {
     @Test
     void simpleCreateOrderTest() {
 
-        int orderId = 999;
-
         String orderJson = """
         {
           "id": 999,
