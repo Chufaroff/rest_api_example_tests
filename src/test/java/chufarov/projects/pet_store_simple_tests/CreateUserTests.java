@@ -1,4 +1,4 @@
-package chufarov.projects.pet_store_tests;
+package chufarov.projects.pet_store_simple_tests;
 
 import org.junit.jupiter.api.Test;
 

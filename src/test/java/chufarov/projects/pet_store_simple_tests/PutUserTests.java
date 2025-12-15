@@ -1,4 +1,4 @@
-package chufarov.projects.pet_store_tests;
+package chufarov.projects.pet_store_simple_tests;
 
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;

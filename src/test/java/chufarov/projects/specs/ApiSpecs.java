@@ -7,7 +7,6 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
-import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.with;
 
 public class ApiSpecs {
@@ -48,5 +47,10 @@ public class ApiSpecs {
     public static ResponseSpecification response404 = new ResponseSpecBuilder()
             .expectStatusCode(404)
             .log(LogDetail.ALL)
+            .build();
+
+    public static ResponseSpecification response500 = new ResponseSpecBuilder()
+            .expectStatusCode(500)
+            .expectContentType(ContentType.JSON)
             .build();
 }

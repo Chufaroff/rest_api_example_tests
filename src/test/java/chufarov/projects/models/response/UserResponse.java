@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class LoginResponse {
+public class UserResponse {
 
     private Integer code;
     private String type;

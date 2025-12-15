@@ -1,19 +1,20 @@
-package chufarov.projects.pet_store_tests;
+package chufarov.projects.pet_store_simple_tests;
 
 import org.junit.jupiter.api.Test;
 
+import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class UserLoginTests {
+public class PetStoreUserLoginTests {
 
     private static final String BASE_URL = "https://petstore.swagger.io/v2";
 
     @Test
     void loginUserBasicTest() {
 
-        // GET /user/login?username={username}&password={password}
         given()
+                .filter(withCustomTemplates())
                 .baseUri(BASE_URL)
                 .log().all() // Логируем запрос
         .when()
