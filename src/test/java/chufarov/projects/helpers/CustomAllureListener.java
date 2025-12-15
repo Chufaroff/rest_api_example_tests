@@ -1,4 +1,4 @@
-package helpers;
+package chufarov.projects.helpers;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 

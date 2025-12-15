@@ -2,7 +2,7 @@ package chufarov.projects.pet_store_simple_tests;
 
 import org.junit.jupiter.api.Test;
 
-import static helpers.CustomAllureListener.withCustomTemplates;
+import static chufarov.projects.helpers.CustomAllureListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 

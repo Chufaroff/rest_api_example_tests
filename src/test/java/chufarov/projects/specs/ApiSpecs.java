@@ -1,6 +1,6 @@
 package chufarov.projects.specs;
 
-import helpers.CustomAllureListener;
+import chufarov.projects.helpers.CustomAllureListener;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
