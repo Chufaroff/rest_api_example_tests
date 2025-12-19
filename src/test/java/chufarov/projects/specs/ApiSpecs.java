@@ -1,6 +1,8 @@
 package chufarov.projects.specs;
 
 import chufarov.projects.helpers.CustomAllureListener;
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
@@ -19,6 +21,12 @@ public class ApiSpecs {
             .contentType(ContentType.JSON)                      // Устанавливаем заголовок
             .baseUri("https://petstore.swagger.io")             // Базовый URL API
             .basePath("/v2");                                   // Базовый путь API
+
+    public static RequestSpecification requestSpecDemoWebShop = new RequestSpecBuilder()
+            .setBaseUri("https://demowebshop.tricentis.com")
+            .setContentType("application/x-www-form-urlencoded; charset=UTF-8")
+            .addFilter(CustomAllureListener.withCustomTemplates()) // ← ДОБАВЬТЕ ЭТО!
+            .build();
 
 
     // 2. СПЕЦИФИКАЦИИ ОТВЕТОВ (Response Specifications)

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
-public class CartTests extends TestBase {
+public class CartSimpleTests extends TestBase {
 
     @Test
     void addToCartAuthorizedTest() {

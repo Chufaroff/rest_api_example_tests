@@ -1,8 +1,5 @@
 package chufarov.projects.demo_web_shop_tests;
 
-import com.codeborne.selenide.Configuration;
-import io.restassured.RestAssured;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
 
@@ -13,7 +10,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
-public class LoginTests extends TestBase {
+public class LoginSimpleTests extends TestBase {
 
     @Test
     void loginFormWithUITest() {
