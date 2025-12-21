@@ -2,6 +2,8 @@ package chufarov.projects.demo_web_shop_tests;
 
 import chufarov.projects.helpers.Attachments;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,6 +23,12 @@ public class TestBase {
         Configuration.timeout = 10000;
 
         RestAssured.baseURI = "https://demowebshop.tricentis.com";
+
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)      // Делать скриншоты
+                .savePageSource(true)   // Сохранять HTML
+                .includeSelenideSteps(true) // true - показывать все шаги Selenide
+        );
     }
 
     @AfterEach
