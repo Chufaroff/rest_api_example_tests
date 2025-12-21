@@ -1,11 +1,11 @@
-package chufarov.projects.api;
+package chufarov.projects.api_classes;
 
 import chufarov.projects.specs.ApiSpecs;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class CartApi {
+public class CartApiDemoWebShop {
 
     public static Response addToCart(String authCookieValue, int productId, int quantity) {
 

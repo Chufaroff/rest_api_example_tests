@@ -1,6 +1,5 @@
 package chufarov.projects.models.response;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,12 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PlaceOrderResponse {
+public class UserResponsePetStore {
 
-    private Integer id;
-    private Integer petId;
-    private Integer quantity;
-    private String shipDate;
-    private String status;
-    private Boolean complete;
+    private Integer code;
+    private String type;
+    private String message;
 }

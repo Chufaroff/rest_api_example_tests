@@ -1,7 +1,7 @@
 package chufarov.projects.petstore_final_build_tests;
 
-import chufarov.projects.models.request.PlaceOrderRequest;
-import chufarov.projects.models.request.UserRequest;
+import chufarov.projects.models.request.PlaceOrderRequestPetStore;
+import chufarov.projects.models.request.UserRequestPetStore;
 import chufarov.projects.models.response.*;
 import chufarov.projects.specs.ApiSpecs;
 import io.qameta.allure.*;
@@ -33,7 +33,7 @@ public class PetStoreApiTests {
         String username = "Vegas";
         String password = "fifa2020";
 
-        LoginResponse loginResponse = step("Authenticate user in PetStore system", () ->
+        LoginResponsePetStore loginResponse = step("Authenticate user in PetStore system", () ->
                 given(ApiSpecs.requestSpec)
                         .queryParam("username", username)
                         .queryParam("password", password)
@@ -42,7 +42,7 @@ public class PetStoreApiTests {
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(LoginResponse.class)
+                        .as(LoginResponsePetStore.class)
                 );
 
         step("Check HTTP status code is 200", () ->
@@ -69,7 +69,7 @@ public class PetStoreApiTests {
     @DisplayName("Create user and verification response body")
     void createUserTest() {
 
-        UserRequest userRequest = new UserRequest();
+        UserRequestPetStore userRequest = new UserRequestPetStore();
         userRequest.setId(7);
         userRequest.setUsername("Vegas");
         userRequest.setFirstName("Bogdan");
@@ -78,7 +78,7 @@ public class PetStoreApiTests {
         userRequest.setPassword("fifa2020");
         userRequest.setPhone("0123456789");
 
-        UserResponse userResponse = step("Sending user creating request", () ->
+        UserResponsePetStore userResponse = step("Sending user creating request", () ->
                 given(ApiSpecs.requestSpec)
                         .body(userRequest)
                 .when()
@@ -86,7 +86,7 @@ public class PetStoreApiTests {
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(UserResponse.class)
+                        .as(UserResponsePetStore.class)
                 );
 
         step("Code verification response", () ->
@@ -111,7 +111,7 @@ public class PetStoreApiTests {
     @DisplayName("Update user and response verification")
     void updateUserAndResponseVerificationTest() {
 
-        UserRequest userRequest = new UserRequest();
+        UserRequestPetStore userRequest = new UserRequestPetStore();
         userRequest.setId(7);
         userRequest.setUsername("Vegas");
         userRequest.setFirstName("Bogdan");
@@ -131,7 +131,7 @@ public class PetStoreApiTests {
                         .response()
                 );
 
-        UserResponse userResponse = response.as(UserResponse.class);
+        UserResponsePetStore userResponse = response.as(UserResponsePetStore.class);
 
         step("Verify response body", () -> {
            assertThat(userResponse.getCode()).isEqualTo(200);
@@ -173,7 +173,7 @@ public class PetStoreApiTests {
 
         String username = "Vegas";
 
-        UserRequest userRequest = new UserRequest();
+        UserRequestPetStore userRequest = new UserRequestPetStore();
         userRequest.setId(7);
         userRequest.setUsername(username);
         userRequest.setFirstName("Bogdan");
@@ -182,7 +182,7 @@ public class PetStoreApiTests {
         userRequest.setPassword("fifa2020");
         userRequest.setPhone("0123456789");
 
-        UserResponse userResponse = step("Sending user creating request", () ->
+        UserResponsePetStore userResponse = step("Sending user creating request", () ->
                 given(ApiSpecs.requestSpec)
                         .body(userRequest)
                 .when()
@@ -190,7 +190,7 @@ public class PetStoreApiTests {
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(UserResponse.class)
+                        .as(UserResponsePetStore.class)
         );
 
         step("Code verification response", () ->
@@ -208,14 +208,14 @@ public class PetStoreApiTests {
                         .isEqualTo("7")
         );
 
-        UserResponse deleteResponse = step("Sending user deletion request", () ->
+        UserResponsePetStore deleteResponse = step("Sending user deletion request", () ->
                 given(ApiSpecs.requestSpec)
                 .when()
                         .delete("/user/" + username)
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(UserResponse.class)
+                        .as(UserResponsePetStore.class)
         );
 
         // Верификация ответа на удаление
@@ -231,7 +231,7 @@ public class PetStoreApiTests {
     @DisplayName("Placing an order on the website 'PetStore'")
     void placeOrderOnTheWebSite() {
 
-        PlaceOrderRequest orderRequest = new PlaceOrderRequest();
+        PlaceOrderRequestPetStore orderRequest = new PlaceOrderRequestPetStore();
         orderRequest.setId(5);
         orderRequest.setPetId(5);
         orderRequest.setQuantity(5);
@@ -241,7 +241,7 @@ public class PetStoreApiTests {
         orderRequest.setStatus("placed");
         orderRequest.setComplete(true);
 
-        PlaceOrderResponse orderResponse = step("Sending order creation request", () ->
+        PlaceOrderResponsePetStore orderResponse = step("Sending order creation request", () ->
                 given(ApiSpecs.requestSpec)
                         .body(orderRequest)
                 .when()
@@ -249,7 +249,7 @@ public class PetStoreApiTests {
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(PlaceOrderResponse.class)
+                        .as(PlaceOrderResponsePetStore.class)
                 );
 
         step("Verify response body", () -> {
@@ -268,7 +268,7 @@ public class PetStoreApiTests {
 
         Integer orderId = 5;
 
-        GetOrderByIdResponse orderResponse = step("Getting order creation request", () ->
+        GetOrderByIdResponsePetStore orderResponse = step("Getting order creation request", () ->
                 given(ApiSpecs.requestSpec)
 
                 .when()
@@ -276,7 +276,7 @@ public class PetStoreApiTests {
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(GetOrderByIdResponse.class)
+                        .as(GetOrderByIdResponsePetStore.class)
         );
 
         step("Verify GET response body", () -> {
@@ -296,14 +296,14 @@ public class PetStoreApiTests {
         Integer orderId = 5;
 
         // DELETE запрос
-        GetOrderByIdResponse deleteResponse = step("Delete order by ID", () ->
+        GetOrderByIdResponsePetStore deleteResponse = step("Delete order by ID", () ->
                 given(ApiSpecs.requestSpec)
                 .when()
                         .delete("/store/order/" + orderId)
                 .then()
                         .spec(ApiSpecs.response200)
                         .extract()
-                        .as(GetOrderByIdResponse.class)
+                        .as(GetOrderByIdResponsePetStore.class)
         );
 
         step("Verify DELETE response", () -> {

@@ -19,12 +19,12 @@ public class LoginSimpleTests extends TestBase {
                 open("/login"));
 
         step("Fill login form", () -> {
-            $("#Email").setValue(login);
+            $("#Email").setValue(userEmail);
             $("#Password").setValue(password).pressEnter();
         });
 
         step("Verify successful authorization", () ->
-            $(".account").shouldHave(text(login)));
+            $(".account").shouldHave(text(userEmail)));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class LoginSimpleTests extends TestBase {
            String authCookieKey = "NOPCOMMERCE.AUTH";
            String authCookieValue = given()
                    .contentType("application/x-www-form-urlencoded")
-                   .formParam("Email", login)
+                   .formParam("Email", userEmail)
                    .formParam("Password", password)
                    .when()
                    .post("https://demowebshop.tricentis.com/login")
@@ -54,6 +54,6 @@ public class LoginSimpleTests extends TestBase {
         });
 
         step("Verify successful authorization", () ->
-                $(".account").shouldHave(text(login)));
+                $(".account").shouldHave(text(userEmail)));
     }
 }

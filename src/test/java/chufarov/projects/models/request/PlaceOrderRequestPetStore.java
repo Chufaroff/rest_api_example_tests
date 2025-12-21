@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PlaceOrderRequest {
+public class PlaceOrderRequestPetStore {
 
     private Integer id;
     private Integer petId;

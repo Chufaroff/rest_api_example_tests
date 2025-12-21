@@ -1,4 +1,4 @@
-package chufarov.projects.simple_tests;
+package chufarov.projects.simple_api_tests;
 
 import org.junit.jupiter.api.Test;
 

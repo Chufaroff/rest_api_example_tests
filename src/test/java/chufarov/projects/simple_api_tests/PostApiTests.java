@@ -1,4 +1,4 @@
-package chufarov.projects.simple_tests;
+package chufarov.projects.simple_api_tests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

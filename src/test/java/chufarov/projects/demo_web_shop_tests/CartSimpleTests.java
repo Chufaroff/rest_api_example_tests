@@ -13,7 +13,7 @@ public class CartSimpleTests extends TestBase {
         String authCookieKey = "NOPCOMMERCE.AUTH";
         String authCookieValue = given()
                 .contentType("application/x-www-form-urlencoded")
-                .formParam("Email", login)
+                .formParam("Email", userEmail)
                 .formParam("Password", password)
                 .when()
                 .post("/login")

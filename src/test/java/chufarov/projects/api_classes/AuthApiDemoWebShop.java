@@ -1,11 +1,11 @@
-package chufarov.projects.api;
+package chufarov.projects.api_classes;
 
 import chufarov.projects.specs.ApiSpecs;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
-public class AuthApi {
+public class AuthApiDemoWebShop {
 
     public static final String AUTH_COOKIE_NAME = "NOPCOMMERCE.AUTH";
 

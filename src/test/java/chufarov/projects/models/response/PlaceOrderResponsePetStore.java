@@ -1,5 +1,6 @@
 package chufarov.projects.models.response;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class GetOrderByIdResponse {
+public class PlaceOrderResponsePetStore {
 
     private Integer id;
     private Integer petId;
@@ -15,9 +16,4 @@ public class GetOrderByIdResponse {
     private String shipDate;
     private String status;
     private Boolean complete;
-
-    // Поля для DELETE ответов
-    private Integer code;
-    private String type;
-    private String message;
 }

@@ -1,7 +1,6 @@
 package chufarov.projects.specs;
 
 import chufarov.projects.helpers.CustomAllureListener;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -18,15 +17,23 @@ public class ApiSpecs {
     public static RequestSpecification requestSpec = with() // Начинаем создавать спецификацию
             .log().all()                                    // Логируем
             .filter(CustomAllureListener.withCustomTemplates()) // Allure фильтр для красивых отчетов
-            .contentType(ContentType.JSON)                      // Устанавливаем заголовок
-            .baseUri("https://petstore.swagger.io")             // Базовый URL API
-            .basePath("/v2");                                   // Базовый путь API
+            .contentType(ContentType.JSON)
+            .baseUri("https://petstore.swagger.io")
+            .basePath("/v2");
 
     public static RequestSpecification requestSpecDemoWebShop = new RequestSpecBuilder()
             .setBaseUri("https://demowebshop.tricentis.com")
             .setContentType("application/x-www-form-urlencoded; charset=UTF-8")
-            .addFilter(CustomAllureListener.withCustomTemplates()) // ← ДОБАВЬТЕ ЭТО!
+            .addFilter(CustomAllureListener.withCustomTemplates())
             .build();
+
+    public static final RequestSpecification requestSpecDemoQa = new RequestSpecBuilder()
+             .setBaseUri("https://demoqa.com")
+             .setContentType("application/json; charset=utf-8")
+             .addFilter(CustomAllureListener.withCustomTemplates())
+             .build();
+
+
 
 
     // 2. СПЕЦИФИКАЦИИ ОТВЕТОВ (Response Specifications)

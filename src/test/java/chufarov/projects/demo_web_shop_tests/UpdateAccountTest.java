@@ -1,6 +1,6 @@
 package chufarov.projects.demo_web_shop_tests;
 
-import chufarov.projects.api.AuthApi;
+import chufarov.projects.api_classes.AuthApiDemoWebShop;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import io.restassured.response.Response;
@@ -38,11 +38,11 @@ public class UpdateAccountTest extends TestBase {
         data.put("Address.PhoneNumber", "1234567891");
         data.put("Address.FaxNumber", "1234567");
 
-        String authCookieValue = AuthApi.login(login, password);
+        String authCookieValue = AuthApiDemoWebShop.login(userEmail, password);
 
         Response response = given()
                 .contentType("application/x-www-form-urlencoded")
-                .cookie(AuthApi.AUTH_COOKIE_NAME, authCookieValue)
+                .cookie(AuthApiDemoWebShop.AUTH_COOKIE_NAME, authCookieValue)
                 .formParams(data)
                 .when()
                 .post("/customer/addresses")
@@ -74,7 +74,7 @@ public class UpdateAccountTest extends TestBase {
         addressData.put("Address.PhoneNumber", "1234567891");
         addressData.put("Address.FaxNumber", "1234567");
 
-        String authCookieValue = AuthApi.login(login, password);
+        String authCookieValue = AuthApiDemoWebShop.login(userEmail, password);
 
         // КЛЮЧЕВОЕ ИЗМЕНЕНИЕ
         given()

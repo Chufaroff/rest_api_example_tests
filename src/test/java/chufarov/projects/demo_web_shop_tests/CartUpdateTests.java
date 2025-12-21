@@ -1,7 +1,7 @@
 package chufarov.projects.demo_web_shop_tests;
 
-import chufarov.projects.api.AuthApi;
-import chufarov.projects.api.CartApi;
+import chufarov.projects.api_classes.AuthApiDemoWebShop;
+import chufarov.projects.api_classes.CartApiDemoWebShop;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -29,10 +29,10 @@ public class CartUpdateTests extends TestBase {
         step("Test of adding to the cart authorized user", () -> {
 
             String authCookieValue = step("Authorization user", () ->
-                    AuthApi.login(login, password));
+                    AuthApiDemoWebShop.login(userEmail, password));
 
             Response response = step("Adding product to the cart", () ->
-                    CartApi.addToCart(authCookieValue, 13, 1));
+                    CartApiDemoWebShop.addToCart(authCookieValue, 13, 1));
 
         step("Validation of a successful response from the server", () -> {
             response.then()
@@ -49,10 +49,10 @@ public class CartUpdateTests extends TestBase {
     @Severity(SeverityLevel.MINOR)
     @DisplayName("Checking the quantity in the cart")
     void addToCartAuthorizedTest() {
-        String authCookieValue = AuthApi.login(login, password);
+        String authCookieValue = AuthApiDemoWebShop.login(userEmail, password);
 
         // 1. Получаем текущий размер ИЗ ПЕРВОГО ЖЕ ЗАПРОСА
-        Response response = CartApi.addToCart(authCookieValue, 13, 1);
+        Response response = CartApiDemoWebShop.addToCart(authCookieValue, 13, 1);
 
         // 2. Извлекаем количество ИЗ ОТВЕТА на добавление
         String countText = response.jsonPath().getString("updatetopcartsectionhtml");
