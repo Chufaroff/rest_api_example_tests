@@ -1,0 +1,16 @@
+{
+  "base": {
+    "language": "en",
+    "project": "Rest API with UI Tests",
+    "allureFolder": "allure-report",
+    "reportLink": "https://jenkins.autotests.cloud/job/",
+    "enableChart": true,
+    "environment": "Jenkins",
+    "comment": "Tests of authorization and functionality basket of the web store"
+  },
+  "telegram": {
+    "token": "8236637878:AAHQO1hUdj-whlZzhxrZhkfz7EWYWng7elM",
+    "chat": "-1003203860540",
+    "replyTo": ""
+  }
+}
