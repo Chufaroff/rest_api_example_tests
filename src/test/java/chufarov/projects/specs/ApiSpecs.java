@@ -33,9 +33,6 @@ public class ApiSpecs {
              .addFilter(CustomAllureListener.withCustomTemplates())
              .build();
 
-
-
-
     // 2. СПЕЦИФИКАЦИИ ОТВЕТОВ (Response Specifications)
     // Предустановленные проверки для разных статус кодов
     // Для успешных ответов (200 OK)
