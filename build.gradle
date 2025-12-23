@@ -57,3 +57,14 @@ test {
         showStandardStreams = true
     }
 }
+
+task smoke_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
+    }
+
+    // Очищаем результаты перед запуском
+    doFirst {
+        delete 'build/allure-results'
+    }
+}
